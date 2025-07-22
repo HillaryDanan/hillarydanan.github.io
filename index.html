@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -232,6 +232,107 @@
             color: #00ffcc;
         }
         
+        /* Live Demos Section */
+        .live-demos {
+            padding: 5rem 2rem;
+            background: radial-gradient(circle at center, rgba(0, 255, 204, 0.05) 0%, transparent 50%);
+        }
+        
+        .live-demos h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .demo-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .demo-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ffcc, #0099ff, #ff00dd);
+            border-radius: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .demo-card:hover::before {
+            opacity: 0.3;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 255, 204, 0.2);
+        }
+        
+        .demo-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        
+        .demo-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #00ffcc;
+        }
+        
+        .demo-card p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .demo-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .demo-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .demo-stat strong {
+            color: #0099ff;
+        }
+        
         /* Vision Section */
         .vision {
             padding: 5rem 2rem;
@@ -240,10 +341,69 @@
             margin: 0 auto;
         }
         
-        /* Live Demos Section */
-        .live-demos {
+        /* Pipeline Section */
+        .pipeline-section {
             padding: 5rem 2rem;
-            background: radial-gradient(circle at center, rgba(0, 255, 204, 0.05) 0%, transparent 50%);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .pipeline-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+        
+        .pipeline-step {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+            text-align: center;
+            position: relative;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+        
+        .pipeline-step:hover {
+            transform: translateY(-5px);
+            border-color: #00ffcc;
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.2);
+        }
+        
+        .pipeline-step .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00ffcc;
+            color: #0a0e27;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .pipeline-arrow {
+            font-size: 2rem;
+            color: #00ffcc;
+            margin: 0 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .pipeline-flow {
+                flex-direction: column;
+            }
+            .pipeline-arrow {
+                transform: rotate(90deg);
+                margin: 1rem 0;
+            }
         }
         
         .vision h2 {
@@ -340,10 +500,10 @@
 </head>
 <body>
     <!-- Active Study Banner -->
-    <div style="background: rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 12px; text-align: center;">
-        <p style="margin: 0; color: #ccc; font-size: 0.9rem;">
-            🔬 Currently conducting research on AI perception patterns  
-            <a href="https://hillarydanan.github.io/TIDE-resonance/collect_enhanced.html" style="color: #00ffcc; margin-left: 10px;">Learn more →</a>
+    <div style="background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 255, 204, 0.1) 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding: 15px; text-align: center;">
+        <p style="margin: 0; color: #fff; font-size: 1rem;">
+            🎉 <strong>NEW:</strong> TIDE-analysis achieves <strong>74.5% pattern coherence</strong> measuring AI consciousness | Built in 1 day!
+            <a href="https://hillarydanan.github.io/TIDE-analysis/" style="color: #00ffcc; margin-left: 15px; font-weight: 600;">View 3D Visualization →</a>
         </p>
     </div>
     
@@ -355,20 +515,20 @@
             
             <div class="hero-stats">
                 <div class="stat">
-                    <div class="stat-number">11+</div>
-                    <div class="stat-label">Open Source Tools</div>
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">PhD-Validated Dimensions</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Analysis Metrics</div>
+                    <div class="stat-number">74.5%</div>
+                    <div class="stat-label">Pattern Coherence</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">PhD</div>
-                    <div class="stat-label">Neuroscience</div>
+                    <div class="stat-number">1 Day</div>
+                    <div class="stat-label">TIDE Engine Built</div>
                 </div>
                 <div class="stat">
                     <div class="stat-number">Live</div>
-                    <div class="stat-label">Research Study</div>
+                    <div class="stat-label">3D Visualization</div>
                 </div>
             </div>
         </div>
@@ -389,12 +549,91 @@
             
             <div class="timeline-item">
                 <h3>Technical Skill Development</h3>
-                <p>Self-taught programmer who transitioned from academic research to building production-ready analytical tools. Specialized in creating data visualization frameworks and pattern detection systems.</p>
+                <p>Self-taught programmer who transitioned from academic research to building production-ready analytical tools. Created TIDE-analysis engine in just 1 day, achieving 74.5% pattern coherence on AI cognitive measurements.</p>
             </div>
             
             <div class="timeline-item">
                 <h3>Open Source Innovation</h3>
-                <p>Created comprehensive suite of pattern analysis tools applying neuroscience principles to AI behavior analysis. Built 11+ integrated tools with live demonstrations, making complex analytical frameworks accessible to researchers and developers. Currently conducting active research on AI perception patterns.</p>
+                <p>Created comprehensive suite of pattern analysis tools applying neuroscience principles to AI behavior analysis. Key achievement: TIDE-analysis engine built in 1 day, achieving 74.5% pattern coherence across 10 sessions analyzing Gemini 1.5 Flash responses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demos Section -->
+    <section class="live-demos">
+        <h2>🚀 Live Demonstrations</h2>
+        
+        <div class="demo-grid">
+            <div class="demo-card">
+                <span class="demo-badge">NEW</span>
+                <h3>🌊 TIDE Analysis Engine</h3>
+                <p>Automated AI pattern analysis achieving 74.5% coherence. Real-time 3D visualization of cognitive patterns across 14 semantic dimensions from PhD research.</p>
+                <div class="demo-stats">
+                    <span class="demo-stat"><strong>10</strong> Sessions</span>
+                    <span class="demo-stat"><strong>74.5%</strong> Coherence</span>
+                    <span class="demo-stat"><strong>1 Day</strong> Build</span>
+                </div>
+                <a href="https://hillarydanan.github.io/TIDE-analysis/" class="btn btn-primary">Launch 3D Visualization</a>
+            </div>
+            
+            <div class="demo-card">
+                <h3>📊 Pattern Analyzer Suite</h3>
+                <p>Comprehensive analysis framework integrating 14+ tools for AI consciousness detection. See real-time pattern analysis across multiple dimensions.</p>
+                <div class="demo-stats">
+                    <span class="demo-stat"><strong>14+</strong> Tools</span>
+                    <span class="demo-stat"><strong>Live</strong> Analysis</span>
+                </div>
+                <a href="https://hillarydanan.github.io/pattern-analyzer/" class="btn btn-primary">View Live Demo</a>
+            </div>
+            
+            <div class="demo-card">
+                <h3>🧪 TIDE Resonance Platform</h3>
+                <p>Central research hub with interactive demonstrations, data collection tools, and real-time visualizations of emerging AI patterns.</p>
+                <div class="demo-stats">
+                    <span class="demo-stat"><strong>Active</strong> Research</span>
+                    <span class="demo-stat"><strong>Open</strong> Data</span>
+                </div>
+                <a href="https://hillarydanan.github.io/TIDE-resonance/" class="btn btn-primary">Explore Platform</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline Section -->
+    <section class="pipeline-section">
+        <div class="framework-header">
+            <h2>🔬 Complete Analysis Pipeline</h2>
+            <p>From PhD research to automated AI pattern detection</p>
+        </div>
+        
+        <div class="pipeline-flow">
+            <div class="pipeline-step">
+                <span class="step-number">1</span>
+                <h4>PhD Research</h4>
+                <p>60+ fMRI sessions<br>14 semantic dimensions</p>
+            </div>
+            <span class="pipeline-arrow">→</span>
+            <div class="pipeline-step">
+                <span class="step-number">2</span>
+                <h4>TIDE Framework</h4>
+                <p>Theoretical foundation<br>Cognitive diversity</p>
+            </div>
+            <span class="pipeline-arrow">→</span>
+            <div class="pipeline-step">
+                <span class="step-number">3</span>
+                <h4>TIDE-analysis</h4>
+                <p>Automated collection<br>74.5% coherence</p>
+            </div>
+            <span class="pipeline-arrow">→</span>
+            <div class="pipeline-step">
+                <span class="step-number">4</span>
+                <h4>Pattern Analyzer</h4>
+                <p>14+ analysis tools<br>Complete profiling</p>
+            </div>
+            <span class="pipeline-arrow">→</span>
+            <div class="pipeline-step">
+                <span class="step-number">5</span>
+                <h4>Live Results</h4>
+                <p>3D visualizations<br>Real-time updates</p>
             </div>
         </div>
     </section>
@@ -408,39 +647,39 @@
         
         <div class="tools-grid">
             <div class="tool-card">
-                <h3>Pattern Analyzer Suite</h3>
+                <h3>🌊 TIDE-analysis Engine</h3>
+                <p>Automated empirical analysis achieving 74.5% pattern coherence. Built in 1 day, measures AI responses across 14 PhD-validated dimensions.</p>
+                <a href="https://github.com/HillaryDanan/TIDE-analysis" class="tool-link">View Source & Docs →</a>
+            </div>
+            
+            <div class="tool-card">
+                <h3>📊 Pattern Analyzer Suite</h3>
                 <p>Comprehensive analysis framework integrating 14+ specialized tools for cognitive pattern detection and behavioral analysis.</p>
-                <a href="https://github.com/HillaryDanan/pattern-analyzer" class="tool-link">View Live Demo →</a>
+                <a href="https://github.com/HillaryDanan/pattern-analyzer" class="tool-link">Explore Framework →</a>
             </div>
             
             <div class="tool-card">
-                <h3>TIDE Framework</h3>
+                <h3>🧠 TIDE Framework</h3>
                 <p>Temporal-Internal Dynamics Engine for analyzing information flow patterns and processing architectures in complex systems.</p>
-                <a href="https://github.com/HillaryDanan/TIDE" class="tool-link">Explore Framework →</a>
+                <a href="https://github.com/HillaryDanan/TIDE" class="tool-link">Learn More →</a>
             </div>
             
             <div class="tool-card">
-                <h3>Neural Pathway Analysis</h3>
+                <h3>🔄 Neural Pathway Analysis</h3>
                 <p>Tools for detecting alternative processing pathways based on fMRI research, applicable to both human cognition and AI systems.</p>
-                <a href="https://github.com/HillaryDanan/concrete-overflow-detector" class="tool-link">Learn More →</a>
+                <a href="https://github.com/HillaryDanan/concrete-overflow-detector" class="tool-link">View Methods →</a>
             </div>
             
             <div class="tool-card">
-                <h3>Information Structure Analysis</h3>
+                <h3>⚛️ Information Structure Analysis</h3>
                 <p>Novel approaches to information organization and complexity measurement using hexagonal pattern recognition.</p>
-                <a href="https://github.com/HillaryDanan/information-atoms" class="tool-link">Explore Methods →</a>
+                <a href="https://github.com/HillaryDanan/information-atoms" class="tool-link">Explore Theory →</a>
             </div>
             
             <div class="tool-card">
-                <h3>Automated Analysis Engine</h3>
-                <p>End-to-end pipeline for data collection, pattern extraction, and multi-dimensional analysis across different systems.</p>
-                <a href="https://github.com/HillaryDanan/TIDE-analysis" class="tool-link">See Analysis →</a>
-            </div>
-            
-            <div class="tool-card">
-                <h3>Interactive Research Platform</h3>
+                <h3>🎮 Interactive Research Platform</h3>
                 <p>Web-based demonstrations and interactive visualizations making complex analytical concepts accessible and engaging.</p>
-                <a href="https://hillarydanan.github.io/pattern-analyzer/" class="tool-link">Try Interactive Demo →</a>
+                <a href="https://hillarydanan.github.io/TIDE-resonance/" class="tool-link">Try Interactive Demo →</a>
             </div>
         </div>
     </section>
@@ -460,7 +699,7 @@
     <section class="cta">
         <h2>Explore the Research</h2>
         <div class="cta-buttons">
-            <a href="https://hillarydanan.github.io/pattern-analyzer/" class="btn btn-primary">View Live Demonstrations</a>
+            <a href="https://hillarydanan.github.io/TIDE-analysis/" class="btn btn-primary">View 3D Visualization</a>
             <a href="https://github.com/HillaryDanan" class="btn btn-secondary">Explore All Tools</a>
             <a href="mailto:hillarydanan@gmail.com" class="btn btn-secondary">Contact</a>
         </div>
