@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hillary Danan | Neuroscience & AI Research</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(circle at 20% 50%, #1a0033 0%, #0a0a0a 50%);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 204, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(0, 153, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 1200px;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tagline {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #888;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        /* Story Section */
+        .story {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #00ffcc 0%, #0099ff 100%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s forwards;
+        }
+        
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #00ffcc;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+        }
+        
+        .timeline-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #00ffcc;
+        }
+        
+        .timeline-item p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+        
+        /* Framework Section */
+        .framework {
+            padding: 5rem 2rem;
+            background: radial-gradient(circle at center, rgba(0, 153, 255, 0.05) 0%, transparent 50%);
+        }
+        
+        .framework-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .framework-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0099ff 0%, #00ffcc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tool-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: #00ffcc;
+            box-shadow: 0 10px 40px rgba(0, 255, 204, 0.1);
+        }
+        
+        .tool-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #00ffcc;
+        }
+        
+        .tool-card p {
+            color: #aaa;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-link {
+            color: #0099ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tool-link:hover {
+            color: #00ffcc;
+        }
+        
+        /* Vision Section */
+        .vision {
+            padding: 5rem 2rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .vision h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .vision-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 3rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0, 255, 204, 0.1) 0%, transparent 50%);
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
+            color: #000;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #00ffcc;
+            border: 2px solid #00ffcc;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(0, 255, 204, 0.1);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .contact-links a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-links a:hover {
+            color: #00ffcc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hillary Danan</h1>
+            <p class="tagline">Neuroscience Research Applied to AI Pattern Analysis</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">11+</div>
+                    <div class="stat-label">Open Source Tools</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Analysis Metrics</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">60+</div>
+                    <div class="stat-label">fMRI Sessions</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Integrated Systems</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story">
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Neuroscience Research</h3>
+                <p>PhD research involving 60+ fMRI sessions studying how human brains process abstract concepts and information. Developed novel frameworks for understanding cognitive pattern formation and neural pathway activation.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>CPG Industry Application</h3>
+                <p>Applied neuroscience insights to consumer behavior analytics. Developed production-level code for Marketing Mix Modeling (MMM), category forecasting (short and long-term), and growth models across different business types and retail banners.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Technical Skill Development</h3>
+                <p>Self-taught programmer who transitioned from academic research to building production-ready analytical tools. Specialized in creating data visualization frameworks and pattern detection systems.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Open Source Innovation</h3>
+                <p>Created comprehensive suite of pattern analysis tools applying neuroscience principles to AI behavior analysis. Built 11+ integrated tools with live demonstrations, making complex analytical frameworks accessible to researchers and developers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework Section -->
+    <section class="framework">
+        <div class="framework-header">
+            <h2>Research Tools & Applications</h2>
+            <p>Open source frameworks for pattern analysis and cognitive modeling</p>
+        </div>
+        
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3>Pattern Analyzer Suite</h3>
+                <p>Comprehensive analysis framework integrating 14+ specialized tools for cognitive pattern detection and behavioral analysis.</p>
+                <a href="https://github.com/HillaryDanan/pattern-analyzer" class="tool-link">View Live Demo →</a>
+            </div>
+            
+            <div class="tool-card">
+                <h3>TIDE Framework</h3>
+                <p>Temporal-Internal Dynamics Engine for analyzing information flow patterns and processing architectures in complex systems.</p>
+                <a href="https://github.com/HillaryDanan/TIDE" class="tool-link">Explore Framework →</a>
+            </div>
+            
+            <div class="tool-card">
+                <h3>Neural Pathway Analysis</h3>
+                <p>Tools for detecting alternative processing pathways based on fMRI research, applicable to both human cognition and AI systems.</p>
+                <a href="https://github.com/HillaryDanan/concrete-overflow-detector" class="tool-link">Learn More →</a>
+            </div>
+            
+            <div class="tool-card">
+                <h3>Information Structure Analysis</h3>
+                <p>Novel approaches to information organization and complexity measurement using hexagonal pattern recognition.</p>
+                <a href="https://github.com/HillaryDanan/information-atoms" class="tool-link">Explore Methods →</a>
+            </div>
+            
+            <div class="tool-card">
+                <h3>Automated Analysis Engine</h3>
+                <p>End-to-end pipeline for data collection, pattern extraction, and multi-dimensional analysis across different systems.</p>
+                <a href="https://github.com/HillaryDanan/TIDE-analysis" class="tool-link">See Analysis →</a>
+            </div>
+            
+            <div class="tool-card">
+                <h3>Interactive Research Platform</h3>
+                <p>Web-based demonstrations and interactive visualizations making complex analytical concepts accessible and engaging.</p>
+                <a href="https://hillarydanan.github.io/TIDE-resonance/" class="tool-link">Try Interactive Demo →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision">
+        <h2>Research Focus</h2>
+        <p class="vision-text">
+            Developing empirical frameworks for understanding complex cognitive patterns through measurable metrics. Bridging neuroscience research with practical applications in AI analysis and system design.
+        </p>
+        <p class="vision-text">
+            All tools are open source and designed for researchers, developers, and organizations interested in advanced pattern analysis and cognitive modeling approaches.
+        </p>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Explore the Research</h2>
+        <div class="cta-buttons">
+            <a href="https://hillarydanan.github.io/pattern-analyzer/" class="btn btn-primary">View Live Demonstrations</a>
+            <a href="https://github.com/HillaryDanan" class="btn btn-secondary">Explore All Tools</a>
+            <a href="mailto:hillarydanan@gmail.com" class="btn btn-secondary">Contact</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <p>Open source research tools for cognitive pattern analysis</p>
+        <div class="contact-links">
+            <a href="https://github.com/HillaryDanan">GitHub</a>
+            <a href="https://hillarydanan.github.io/TIDE-resonance/">Research Platform</a>
+            <a href="mailto:hillarydanan@gmail.com">Email</a>
+        </div>
+    </section>
+</body>
+</html>
