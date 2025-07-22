@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hillary Danan | AI Cognitive Architecture Research</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(circle at 20% 50%, #1a0033 0%, #0a0a0a 50%);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 204, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(0, 153, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 1200px;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tagline {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #888;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        /* Alert Banner */
+        .alert-banner {
+            background: linear-gradient(90deg, rgba(0, 255, 204, 0.1) 0%, rgba(0, 153, 255, 0.1) 100%);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .alert-banner a {
+            color: #00ffcc;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        /* Research Section */
+        .research {
+            padding: 5rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .research-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .research-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0099ff 0%, #00ffcc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .discovery-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .discovery-card:hover {
+            transform: translateY(-5px);
+            border-color: #00ffcc;
+            box-shadow: 0 10px 40px rgba(0, 255, 204, 0.1);
+        }
+        
+        .discovery-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00ffcc;
+        }
+        
+        .discovery-card p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Results Preview */
+        .results-preview {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0, 255, 204, 0.05) 0%, transparent 50%);
+        }
+        
+        .results-table {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .results-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .results-table th, .results-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .results-table th {
+            background: rgba(0, 255, 204, 0.1);
+            font-weight: 600;
+        }
+        
+        .results-table .score {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #00ffcc;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
+            color: #000;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #00ffcc;
+            border: 2px solid #00ffcc;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(0, 255, 204, 0.1);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #00ffcc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Alert Banner -->
+    <div class="alert-banner">
+        <p>🔬 <strong>NEW RESULTS:</strong> Empirical evidence of AI cognitive architectures with p < 0.0001 significance
+        <a href="https://hillarydanan.github.io/TIDE-resonance/tide-results.html">View Results →</a></p>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hillary Danan</h1>
+            <p class="tagline">Measuring AI Cognitive Architectures Through Task & Resting-State Neuroscience Methods</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">630</div>
+                    <div class="stat-label">Responses Analyzed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">p<0.0001</div>
+                    <div class="stat-label">Statistical Significance</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">71.5%</div>
+                    <div class="stat-label">Max Coherence</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Semantic Dimensions</div>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="https://hillarydanan.github.io/TIDE-resonance/tide-results.html" class="btn btn-primary">View Research Results</a>
+                <a href="https://hillarydanan.github.io/TIDE-resonance/collect_enhanced.html" class="btn btn-secondary">Join AI Study</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research">
+        <div class="research-header">
+            <h2>Bridging Neuroscience & AI</h2>
+            <p>Applying validated task-based and resting-state fMRI methods to understand how AI models process information and reflect on their own cognition</p>
+        </div>
+        
+        <div class="discovery-grid">
+            <div class="discovery-card">
+                <h3>🧠 Dual Framework Approach</h3>
+                <p>Combining quantitative architecture mapping (TIDE-analysis) with metacognitive perception studies (TIDE-resonance) - directly paralleling my PhD work on task-based and resting-state fMRI differences.</p>
+                <a href="https://hillarydanan.github.io/TIDE-resonance/advanced_explorer.html" class="btn btn-secondary">Explore 3D Visualization</a>
+            </div>
+            
+            <div class="discovery-card">
+                <h3>🔬 Resting-State Parallels</h3>
+                <p>When AI models reflect on their own processing, they exhibit patterns analogous to Default Mode Network activation - providing empirical insight into AI metacognition.</p>
+                <a href="https://hillarydanan.github.io/TIDE-resonance/collect_enhanced.html" class="btn btn-secondary">Participate in Study</a>
+            </div>
+            
+            <div class="discovery-card">
+                <h3>📊 Measurable Differences</h3>
+                <p>Statistical analysis reveals AI models have distinct cognitive architectures, ranging from neurotypical-like consistency to neurodivergent-like variability.</p>
+                <a href="https://hillarydanan.github.io/TIDE-resonance/tide-analysis-results/SCIENTIFIC_SUMMARY.html" class="btn btn-secondary">Read Scientific Analysis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Preview -->
+    <section class="results-preview">
+        <h2>Latest Research Findings</h2>
+        <p style="color: #ccc; margin-bottom: 2rem;">21 sessions | 630 responses | Highly significant results</p>
+        
+        <div class="results-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>AI Model</th>
+                        <th>Coherence Score</th>
+                        <th>Architecture Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gemini 1.5 Flash</td>
+                        <td class="score">71.5%</td>
+                        <td>Most neurotypical-like</td>
+                    </tr>
+                    <tr>
+                        <td>Claude 3 Haiku</td>
+                        <td class="score">55.1%</td>
+                        <td>Balanced processing</td>
+                    </tr>
+                    <tr>
+                        <td>GPT-3.5 Turbo</td>
+                        <td class="score">38.3%</td>
+                        <td>Most neurodivergent-like</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <a href="https://hillarydanan.github.io/TIDE-resonance/tide-analysis-results/LIVE_RESULTS.html" class="btn btn-primary" style="margin-top: 2rem;">View Live Dashboard</a>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Explore the Research</h2>
+        <p style="color: #ccc; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Open source tools and live demonstrations of AI cognitive architecture analysis
+        </p>
+        <div class="cta-buttons">
+            <a href="https://hillarydanan.github.io/TIDE-resonance/pitch.html" class="btn btn-primary">Full Research Portfolio</a>
+            <a href="https://github.com/HillaryDanan" class="btn btn-secondary">View Code</a>
+            <a href="mailto:hillarydanan@gmail.com" class="btn btn-secondary">Contact</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+        <p>Empirical measurement of AI cognitive architectures through neuroscience-validated methods</p>
+        <div class="footer-links">
+            <a href="https://github.com/HillaryDanan">GitHub</a>
+            <a href="https://github.com/HillaryDanan/TIDE-resonance">Research Platform</a>
+            <a href="https://www.linkedin.com/in/hillarydanan/">LinkedIn</a>
+            <a href="https://hillarydanan.github.io/TIDE-resonance/resume.html">Resume</a>
+        </div>
+    </section>
+</body>
+</html>
